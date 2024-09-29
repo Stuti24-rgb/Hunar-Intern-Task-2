@@ -1,0 +1,27 @@
+def main():
+    choice = input("Would you like to (E)ncrypt or (D)ecrypt? ").lower()
+    if choice == 'e':
+        mode = input("Encrypt (T)ext or (F)ile? ").lower()
+        if mode == 't':
+            text = input("Enter the text to encrypt: ")
+            shift = int(input("Enter the shift value: "))
+            print(f"Encrypted Text: {encrypt_text(text, shift)}")
+        elif mode == 'f':
+            file_path = input("Enter the file path to encrypt: ")
+            shift = int(input("Enter the shift value: "))
+            encrypt_file(file_path, shift)
+    elif choice == 'd':
+        mode = input("Decrypt (T)ext or (F)ile? ").lower()
+        if mode == 't':
+            text = input("Enter the text to decrypt: ")
+            shift = int(input("Enter the shift value: "))
+            print(f"Decrypted Text: {decrypt_text(text, shift)}")
+        elif mode == 'f':
+            file_path = input("Enter the file path to decrypt: ")
+            shift = int(input("Enter the shift value: "))
+            decrypt_file(file_path, shift)
+    else:
+        print("Invalid choice! Please select (E)ncrypt or (D)ecrypt.")
+
+if __name__ == "__main__":
+    main()
